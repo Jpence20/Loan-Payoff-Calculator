@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Loan Payment</title>
+    <link href="style.css" rel="stylesheet">
+    <script>
+
+function calculate(){
+    var balance =parseFloat(document.getElementById("Balance").value);
+    var rate =parseFloat(document.getElementById("rate").value);
+    var payment = parseFloat(document.getElementById("payment").value);
+    var month=0;
+    var interest ='';
+    var Endingbalance ='';
+
+    var tableDiv = '';
+
+    tableDiv = "<table border = '1'>";
+    tableDiv += "<tr>";
+    tableDiv += "<th>Month</th>";
+    tableDiv += "<th>Balance</th>";
+    tableDiv += "<th>Ending Balance</th>";
+    tableDiv += "<th>Payment</th>";
+    tableDiv += "<th>Monthly Interest</th>";
+    tableDiv += "</tr>";
+
+
+
+
+    while(balance>0)
+    {
+
+         interest = parseFloat(balance*(rate/12/100));
+        Math.round(interest);
+
+
+        EndingBalance = parseFloat((balance + interest) - payment);
+        Math.round(EndingBalance);
+
+
+            month++;
+
+        if(balance<payment)
+        {
+          interest = parseFloat(balance*(rate/12/100));
+        Math.round(interest);
+
+        payment=parseFloat(balance+interest);
+        EndingBalance=parseFloat(balance+interest)-payment;
+
+
+        }
+
+        tableDiv +='<tr>';
+        tableDiv +='<td>' + month + '</td>';
+        tableDiv +='<td>' + balance + '</td>';
+        tableDiv +='<td>' + EndingBalance + '</td>';
+        tableDiv +='<td>' + payment + '</td>';
+        tableDiv +='<td>' + interest + '</td>';
+        tableDiv +='</tr>';
+
+
+        balance=EndingBalance;
+     }
+     tableDiv +="</table>";
+
+    document.getElementById("tableOutput").innerHTML=tableDiv;
+
+
+    }
+
+
+
+    </script>
+</head>
+<body>
+    <h1>How Long to pay off Loan Calculator</h1>
+    <p>
+        If you need to figure out how long it will take you to pay off a loan, then if you have come to the right place. All you need to do is input the amount of the loan in the first box.
+        Your interest rate in the second box. Then how much you will pay each month, then click calculate.
+    </p>
+    <form name="myform">
+
+        <h2>Input loan amount</h2> <input type="number" id="Balance" value="0" required>
+        <h2> Input Interest rate</h2><input type="number" id="rate" value="0" required>%
+        <h2> Input Monthly Payment</h2><input type="number" id="payment" value="0" required><br><br>
+        <input type="button" id="Results" value="Calculate" onclick="calculate()">
+        <input type="reset" id="reset" value="Reset">
+
+    </form><br><br>
+    <div id="tableOutput">
+
+    </div>
+    <footer>
+        &copy;2022 Jeremy Pence | <a href="malito:jpence61598@ucumberlands.edu">Email</a> <br> This page is being constructed as part of the requirements for ITSS334 at the University of the Cumberlands
+    </footer>
+</body>
+</html>

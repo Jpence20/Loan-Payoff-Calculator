@@ -1,0 +1,57 @@
+﻿@charset "utf-8";
+
+html {
+    background: lightblue;
+}
+
+body {
+    background-color: lightcyan;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+}
+
+form {
+    text-align: center;
+    font-size: large;
+    font: bold;
+}
+
+input[type=button] {
+    padding: 5px 15px;
+    margin-top: 20px;
+}
+
+input[type=reset] {
+    padding: 5px 15px;
+    margin-top: 20px;
+}
+
+p {
+    text-align: left;
+    font-size: larger;
+    line-height: 2;
+}
+
+form {
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    font-weight: bold;
+    background-color: lightblue;
+    line-height: 3em;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
